@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-DESKTOP_FILE="$HOME/.config/autostart/warp-tray.desktop"
+DESKTOP_FILE="$HOME/.config/autostart/warp-gui.desktop"
 
 if [ -d "$SCRIPT_DIR/.venv" ]; then
     PYTHON="$SCRIPT_DIR/.venv/bin/python"
@@ -14,7 +14,7 @@ mkdir -p "$HOME/.config/autostart"
 cat > "$DESKTOP_FILE" << EOF
 [Desktop Entry]
 Type=Application
-Name=WARP Tray
+Name=Warp GUI
 Comment=Cloudflare WARP system tray
 Exec=$PYTHON SCRIPT_PATH/warp_tray.py
 Icon=SCRIPT_PATH/warp_connect.png
