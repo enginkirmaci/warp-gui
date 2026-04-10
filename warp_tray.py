@@ -54,7 +54,7 @@ class WarpTray:
         icon_path = CONNECTED_ICON if self.connected else DISCONNECTED_ICON
         
         self.indicator = AppIndicator3.Indicator.new(
-            'warp-gui',
+            'Warp GUI',
             icon_path,
             AppIndicator3.IndicatorCategory.APPLICATION_STATUS
         )
