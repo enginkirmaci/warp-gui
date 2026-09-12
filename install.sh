@@ -23,6 +23,8 @@ Exec=$BINARY
 Icon=$SCRIPT_DIR/warp_connect.png
 Terminal=false
 StartupNotify=false
+X-GNOME-Autostart-enabled=true
+X-KDE-autostart-afterplasma=true
 EOF
 
 echo "Autostart installed at $DESKTOP_FILE"

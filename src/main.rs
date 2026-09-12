@@ -106,11 +106,20 @@ fn main() {
         .expect("failed to write disconnected icon");
 
     let connected = get_status();
-    let tray = WarpTray { connected, icon_dir };
 
-    let _handle = tray
-        .spawn()
-        .expect("failed to spawn system tray");
+    let _handle = loop {
+        let tray = WarpTray {
+            connected,
+            icon_dir: icon_dir.clone(),
+        };
+        match tray.spawn() {
+            Ok(handle) => break handle,
+            Err(_) => {
+                eprintln!("warp-gui: tray not ready, retrying in 2s...");
+                thread::sleep(Duration::from_secs(2));
+            }
+        }
+    };
 
     loop {
         thread::park();
